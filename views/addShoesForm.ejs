@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Shoes</title>
+</head>
+<body>
+    <form action="/addShoes" method="post" enctype="multipart/form-data">
+        <label for="name">
+            <input name="name" type="text" placeholder="Enter shoes name: ">
+        </label>
+        <label for="price">
+            <input name="price" type="number" placeholder="Enter shoes price: ">
+        </label>
+        <label for="imgUpload">
+            <input name="image" type="file" accept="image/*" >
+        </label>
+        <button>Add</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>collections</title>
+</head>
+<style>
+    .shoes{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .hero
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+</style>
+<body>
+    <div class="hero">
+        <div>
+        <h1>ONE DEGREE</h1>
+        </div>
+        <div>
+            <a href="/cart"><button>cart</button></a>
+        </div>
+    </div>
+    <div class="shoes">
+
+        <% for( let shoes of AllShoes ) { %>
+
+            <div class="shoe">
+                <a href="/collections/<%= shoes._id %>">
+                <img height="200px" width="200px" src="<%= shoes.imgs %>" alt="shoesPic">
+            </a>
+                <h3> <%= shoes.name %> </h3>
+                <span> <%= shoes.price %> </span>
+                <button class="add-to-cart-button" data-id="<%= shoes._id %>">add to cart</button>
+            </div>
+            <% } %>
+    </div>
+    
+<script>
+    let cart = [];
+    const add_to_cart_buttons = document.getElementsByClassName('add-to-cart-button');
+    Array.from(add_to_cart_buttons).forEach(add_to_cart_button => {
+        add_to_cart_button.addEventListener('click', async()=>{
+            const shoes_id = add_to_cart_button.dataset.id;
+            cart.push(shoes_id);
+        })
+    });
+</script>
+</body>
+
+</html>
